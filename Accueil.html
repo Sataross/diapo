@@ -50,10 +50,13 @@
   </style>
 
 <script>
+
+const centerObj = document.querySelector(".centerObj");
+
     window.onload = function ()
-{
+    {
     centerObj.animate(poutinSpinning, poutinTiming);
-};
+    };
 
 
     const poutinSpinning = [
@@ -61,20 +64,33 @@
         { transform: 'rotate(360deg) scale(1)' }
     ];
 
+
     const poutinTiming = {
     duration: 2000,
     iterations: 1,
     }
 
-    const centerObj = document.querySelector(".centerObj");
-
+    var k = [38, 38, 40, 40, 37, 39, 37, 39, 66, 65],
+    n = 0;
+    $(document).keydown(function (e) {
+        if (e.keyCode === k[n++]) {
+            if (n === k.length) {
+                alert('POUR LA MERE PATRIE !!!'); 
+                n = 0;
+                return false;
+            }
+        }
+        else {
+            n = 0;
+        }
+    });
    
     document.addEventListener('keydown', function(event) {
         if(event.keyCode == 37) {
 
         }
         else if(event.keyCode == 39) {
-            
+       
         }
     });
 </script>
